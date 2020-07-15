@@ -22,29 +22,29 @@ let writers = [
     lastName: "Woolf",
     occupation: "writer",
     age: 59,
-    alive: false
+    alive: false,
   },
   {
     firstName: "Zadie",
     lastName: "Smith",
     occupation: "writer",
     age: 41,
-    alive: true
+    alive: true,
   },
   {
     firstName: "Jane",
     lastName: "Austen",
     occupation: "writer",
     age: 41,
-    alive: false
+    alive: false,
   },
   {
     firstName: "bell",
     lastName: "hooks",
     occupation: "writer",
     age: 64,
-    alive: true
-  }
+    alive: true,
+  },
 ];
 
 /*
@@ -54,9 +54,11 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 
-writers.forEach(function (person) {
-  console.log(`Hi, my name is ${person.firstName} ${person.lastName}. I am ${person.age} years old, and work as a ${person.occupation}.`);
-})
+writers.forEach((person) => {
+  console.log(
+    `Hi, my name is ${person.firstName} ${person.lastName}. I am ${person.age} years old, and work as a ${person.occupation}.`
+  );
+});
 
 /*
 Exercise 2:
@@ -64,26 +66,28 @@ Exercise 2:
   and not with us anymore, use the below sentence format:
   "Writer {firstName} {lastName} died at {age} years old."
 */
-writers.forEach(function(person) {
+writers.forEach((person) => {
   if (person.age <= 49 && person.age >= 40) {
     if (person.alive == false) {
-      console.log(`Writer ${person.firstName} ${person.lastName} died at ${person.age} years old.`);
-      
+      console.log(
+        `Writer ${person.firstName} ${person.lastName} died at ${person.age} years old.`
+      );
     }
   }
-})
-
+});
 
 /*
 Exercise 3:
   Only `console.log()` out contemporary (meaning still alive) writers who are in their forties:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
-writers.forEach(function(person) {
-  if (person.age <= 49 && person.age >= 40) {
-    if (person.alive == true) {
-    console.log(`Hi, my name is ${person.firstName} ${person.lastName}. I am ${person.age} years old.`);
-        
-    }
+const aliveInForties = writers.filter((writer) => {
+  return writer.age <= 49 && writer.age >= 40;
+});
+aliveInForties.forEach((person) => {
+  if (person.alive == true) {
+    console.log(
+      `Hi, my name is ${person.firstName} ${person.lastName}. I am ${person.age} years old.`
+    );
   }
-})
+});
